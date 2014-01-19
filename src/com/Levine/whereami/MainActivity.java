@@ -84,12 +84,15 @@ public class MainActivity extends FragmentActivity
 
 	@Override
 	public void onConnected(Bundle dataBundle) {
+		Log.e("status","In onConnected");
 		// Display the connection status
 		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 		iAmHere = locClient.getLastLocation();
-		
 		currentLocation = new LatLng(iAmHere.getLatitude(),
 				iAmHere.getLongitude());
+		
+		theMap.addMarker(new MarkerOptions().position(currentLocation).title(
+				"TJ Laser"));
 	}
 
 	public void onDisconnected() {
@@ -154,7 +157,6 @@ public class MainActivity extends FragmentActivity
 		theMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 				.getMap();
 		theMap.setMyLocationEnabled(true);
-		
 		locClient = new LocationClient(this, this, this);
 	}
 
@@ -177,11 +179,6 @@ public class MainActivity extends FragmentActivity
 	protected void onResume() {
 		Log.e("Status", "In onResume");
 		super.onResume();
-		iAmHere=locClient.getLastLocation();
-		LatLng currentLocation = new LatLng(iAmHere.getLatitude(),
-				iAmHere.getLongitude());
-		theMap.addMarker(new MarkerOptions().position(currentLocation).title(
-				"TJ Laser"));
 		
 	}
 

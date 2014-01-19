@@ -82,6 +82,13 @@ public class MainActivity extends FragmentActivity
 		}
 	}
 
+	public void checkGooglePlay(){
+		if(servicesConnected()){
+			Log.i("Play Services","Play Services are connected");
+		}
+		else Log.i("Play Services","Play Services are NOT AVAILABLE");
+	}
+	
 	@Override
 	public void onConnected(Bundle dataBundle) {
 		Log.e("status","In onConnected");
@@ -152,6 +159,10 @@ public class MainActivity extends FragmentActivity
 					+ errorCode);
 			warning.show();
 		}
+		
+	checkGooglePlay();
+		
+		
 
 		setContentView(R.layout.activity_main);
 		theMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))

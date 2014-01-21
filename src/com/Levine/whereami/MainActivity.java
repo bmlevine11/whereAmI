@@ -99,7 +99,7 @@ public class MainActivity extends FragmentActivity
 				iAmHere.getLongitude());
 		
 		theMap.addMarker(new MarkerOptions().position(currentLocation).title(
-				"TJ Laser"));
+				"EAT PHASER TJ LASER"));
 	}
 
 	public void onDisconnected() {

@@ -192,7 +192,6 @@ public class MainActivity extends FragmentActivity
 		super.onResume();
 		
 	}
-
 	protected void onStop() {
 		// Disconnecting the client invalidates it.
 		locClient.disconnect();
